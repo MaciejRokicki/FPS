@@ -9,24 +9,30 @@ public sealed class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
 
     #region InputActionReferences
+    [Header("Input Action References")]
     [SerializeField]
     private InputActionReference movementInputActionReference;
     [SerializeField]
-    private InputActionReference sprintActionReference;
+    private InputActionReference lookInputActionReference;
+    [SerializeField]
+    private InputActionReference sprintHoldActionReference;
+    [SerializeField]
+    private InputActionReference sprintToggleActionReference;
     [SerializeField]
     private InputActionReference jumpInputActionReference;
     #endregion
 
     #region Settings
+    [Header("Player settings")]
     [SerializeField]
     private float movementSpeed = 5.0f;
     [SerializeField]
     private float sprintBoost = 5.0f;
     [SerializeField]
     private float jumpHeight = 1.0f;
-
-    private float gravity = -9.81f;
     private Vector3 moveDirection = Vector3.zero;
+    [SerializeField]
+    private float gravity = -9.81f;
     private float verticalVelocity;
     #endregion
 
@@ -35,18 +41,37 @@ public sealed class PlayerController : MonoBehaviour
     private bool jump = false;
 
     #region Camera
+    [Header("Camera settings")]
     [SerializeField]
     private Camera playerCamera;
-
     private Vector2 lookDirection = Vector2.zero;
     [SerializeField]
-    private Vector2 mouseCameraSensitivity = new Vector2(4.0f, 3.0f);
+    private Vector2 mouseSensitivity = new Vector2(4.0f, 3.0f);
     [SerializeField]
-    private Vector2 gamepadCameraSensitivity = new Vector2(80.0f, 60.0f);
+    private Vector2 gamepadSensitivity = new Vector2(160.0f, 120.0f);
     private float cameraVerticalRotation = 0.0f;
     [SerializeField]
     private float cameraVerticalRotationClamp = 30.0f;
     #endregion
+
+    private void OnEnable()
+    {
+        movementInputActionReference.action.performed += MoveInputPerformed;
+        movementInputActionReference.action.canceled += MoveInputCanceled;
+        jumpInputActionReference.action.performed += JumpInputPerformed;
+        sprintHoldActionReference.action.performed += SprintHoldInputPerformed;
+        sprintHoldActionReference.action.canceled += SprintHoldInputCanceled;
+        sprintToggleActionReference.action.canceled += SprintToggleInputCanceled;
+    }
+
+    private void OnDisable()
+    {
+        movementInputActionReference.action.performed -= MoveInputPerformed;
+        movementInputActionReference.action.canceled -= MoveInputCanceled;
+        jumpInputActionReference.action.performed -= JumpInputPerformed;
+        sprintHoldActionReference.action.performed -= SprintHoldInputPerformed;
+        sprintHoldActionReference.action.canceled -= SprintHoldInputCanceled;
+    }
 
     private void Awake()
     {
@@ -59,24 +84,23 @@ public sealed class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (playerInput.currentControlScheme == "Gamepad")
+        {
+            lookDirection = lookInputActionReference.action.ReadValue<Vector2>() * gamepadSensitivity * Time.deltaTime;
+        }
+        else if (playerInput.currentControlScheme == "Keyboard&Mouse")
+        {
+            lookDirection = lookInputActionReference.action.ReadValue<Vector2>() * mouseSensitivity;
+        }
+
         HandleMovement();
-
-        if(playerInput.currentControlScheme == "Gamepad")
-        {
-            lookDirection = Gamepad.current.rightStick.ReadValue() * gamepadCameraSensitivity;
-        }
-        else if(playerInput.currentControlScheme == "Keyboard&Mouse")
-        {
-            lookDirection = Mouse.current.delta.ReadValue() * mouseCameraSensitivity;
-        }
-
         HandleRotation();
     }
 
     private void MoveInputPerformed(CallbackContext ctxt)
     {
-        Vector2 callbackValue = ctxt.ReadValue<Vector2>();
-        moveDirection = new Vector3(callbackValue.x, 0.0f, callbackValue.y);
+        moveDirection.x = ctxt.ReadValue<Vector2>().x;
+        moveDirection.z = ctxt.ReadValue<Vector2>().y;
     }
 
     private void MoveInputCanceled(CallbackContext ctxt)
@@ -92,13 +116,23 @@ public sealed class PlayerController : MonoBehaviour
         }
     }
 
-    private void SprintInputPerformed(CallbackContext ctxt)
+    private void SprintHoldInputPerformed(CallbackContext ctxt)
     {
-        if (!isSprinting)
+        HandleToggleSprint();
+    }
+
+    private void SprintHoldInputCanceled(CallbackContext ctxt)
+    {
+        if(isSprinting)
         {
-            movementSpeed += sprintBoost;
-            isSprinting = true;
+            isSprinting = false;
+            movementSpeed -= sprintBoost;
         }
+    }
+
+    private void SprintToggleInputCanceled(CallbackContext ctxt)
+    {
+        HandleToggleSprint();
     }
 
     private void HandleMovement()
@@ -117,10 +151,9 @@ public sealed class PlayerController : MonoBehaviour
             }
         }
 
-        if (isSprinting && moveDirection == Vector3.zero)
+        if (isSprinting && (moveDirection.z <= 0.0f || moveDirection == Vector3.zero))
         {
-            movementSpeed -= sprintBoost;
-            isSprinting = false;
+            HandleToggleSprint();
         }
 
         verticalVelocity += gravity * Time.deltaTime;
@@ -131,9 +164,15 @@ public sealed class PlayerController : MonoBehaviour
         characterController.Move(move * Time.deltaTime);
     }
 
+    private void HandleToggleSprint()
+    {
+        isSprinting = !isSprinting;
+
+        movementSpeed += isSprinting ? sprintBoost : -sprintBoost;
+    }
+
     private void HandleRotation()
     {
-        lookDirection *= Time.deltaTime;
         transform.Rotate(Vector3.up, lookDirection.x);
 
         cameraVerticalRotation -= lookDirection.y;
@@ -142,21 +181,5 @@ public sealed class PlayerController : MonoBehaviour
         Vector3 cameraRotation = playerCamera.transform.eulerAngles;
         cameraRotation.x = cameraVerticalRotation;
         playerCamera.transform.eulerAngles = cameraRotation;
-    }
-
-    private void OnEnable()
-    {
-        movementInputActionReference.action.performed += MoveInputPerformed;
-        movementInputActionReference.action.canceled += MoveInputCanceled;
-        jumpInputActionReference.action.performed += JumpInputPerformed;
-        sprintActionReference.action.performed += SprintInputPerformed;
-    }
-
-    private void OnDisable()
-    {
-        movementInputActionReference.action.performed -= MoveInputPerformed;
-        movementInputActionReference.action.canceled -= MoveInputCanceled;
-        jumpInputActionReference.action.performed -= JumpInputPerformed;
-        sprintActionReference.action.performed -= SprintInputPerformed;
     }
 }

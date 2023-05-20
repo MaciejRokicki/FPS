@@ -96,14 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementInputActionReference: {fileID: 3765772654437101929, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
-  sprintActionReference: {fileID: 7945535247743144429, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  lookInputActionReference: {fileID: 182777464932174986, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  sprintHoldActionReference: {fileID: 7945535247743144429, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  sprintToggleActionReference: {fileID: -4537801240566212670, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   jumpInputActionReference: {fileID: 2398443007023308220, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   movementSpeed: 5
   sprintBoost: 5
   jumpHeight: 1
+  gravity: -9.81
   playerCamera: {fileID: 8006987297942312328}
-  mouseCameraSensitivity: {x: 4, y: 3}
-  gamepadCameraSensitivity: {x: 80, y: 60}
+  mouseSensitivity: {x: 4, y: 3}
+  gamepadSensitivity: {x: 160, y: 120}
   cameraVerticalRotationClamp: 30
 --- !u!1 &8006987297942312330
 GameObject:
