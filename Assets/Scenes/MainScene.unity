@@ -696,26 +696,31 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4285855344363051379, guid: a9145a86ebb79194ab5517147aec0457, type: 3}
   m_PrefabInstance: {fileID: 4285855343499023030}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1534575219 stripped
+--- !u!1 &1595096778 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8006987296767144620, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 224390497668753680, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
   m_PrefabInstance: {fileID: 8006987298623437051}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1534575224
-MonoBehaviour:
+--- !u!95 &1595096781
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534575219}
+  m_GameObject: {fileID: 1595096778}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8f8b9262a2bf0f46bb6002ee5f3e603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FireInputActionReference: {fileID: 9048201976278627277, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
-  ReloadInputActionReference: {fileID: 1930934883310841058, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
-  ChangeFireModeActionReference: {fileID: 4171097843155153919, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3a68cd915e629943ba1c5423ca8978d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1785734576
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,16 +892,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3086031461556500376, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3321626396446270664, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296932583406607687, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
-      propertyPath: smoothness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7110286403783840608, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
+      propertyPath: weaponSocketAnimator
+      value: 
+      objectReference: {fileID: 1595096781}
     - target: {fileID: 8006987296767144608, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: rotate
       value: 

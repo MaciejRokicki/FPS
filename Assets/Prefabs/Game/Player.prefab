@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 8006987296767144609}
   - component: {fileID: 8006987296767144610}
   - component: {fileID: 8006987296767144608}
+  - component: {fileID: 7110286403783840608}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -158,6 +159,28 @@ MonoBehaviour:
   mouseSensitivity: {x: 4, y: 3}
   gamepadSensitivity: {x: 160, y: 120}
   cameraVerticalRotationClamp: 30
+--- !u!114 &7110286403783840608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006987296767144620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f8b9262a2bf0f46bb6002ee5f3e603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireInputActionReference: {fileID: 9048201976278627277, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  ReloadInputActionReference: {fileID: 1930934883310841058, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  ChangeFireModeActionReference: {fileID: 4171097843155153919, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  NextWeaponActionReference: {fileID: -5678840430479451587, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  weaponSocketAnimator: {fileID: 0}
+  weapons:
+  - {fileID: 1703188049106120162}
+  - {fileID: 8404310986454665749}
+  - {fileID: 6337347162683280940}
+  currentWeaponId: 0
 --- !u!1 &8006987297942312330
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statistics: {fileID: 11400000, guid: ee8008007a96edb4ca99033e324e2815, type: 2}
-  ammo: 0
 --- !u!4 &824884921901610678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eedec5033823fae4381f4fc6bf172260, type: 3}
@@ -468,7 +490,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statistics: {fileID: 11400000, guid: 3977ebb5f78c0e842b0fcb7b1f67417d, type: 2}
-  ammo: 0
 --- !u!1001 &2743431673622039241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -585,4 +606,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statistics: {fileID: 11400000, guid: c934235931b627a43ae960a3065c4320, type: 2}
-  ammo: 0

@@ -140,7 +140,6 @@ public class Weapon : MonoBehaviour
         mainFireMode = !mainFireMode;
 
         WeaponFireMode fireMode = mainFireMode ? statistics.FireMode : statistics.AlternativeFireMode;
-        Debug.Log(fireMode);
         SetFireMode(fireMode);
     }
 
