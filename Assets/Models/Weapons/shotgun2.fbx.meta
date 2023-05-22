@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc43b1d6294e18c46816a1197ead0702
+guid: eedec5033823fae4381f4fc6bf172260
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,22 +8,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bois_
-    second: {fileID: 2100000, guid: d6b6b79b0662ae14695326e566ca2118, type: 2}
+    second: {fileID: 2100000, guid: 8ffb9162aa640dd40a1f6b4c980aaa17, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: fer
-    second: {fileID: 2100000, guid: 750322e9811365149b1f186f03449b59, type: 2}
+    second: {fileID: 2100000, guid: 5fff2220a70bd0b40bc2cd3e1e4e820c, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ImphenziaPalette01-256
-    second: {fileID: 2800000, guid: 8738481d23abdc14a9f7fa0cc2288e03, type: 3}
+    second: {fileID: 2800000, guid: aa8a35ce52c4b734781c670bf7c45a6f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ImphenziaPalette01-256-Gradient
-    second: {fileID: 2800000, guid: af394ddc8ebbad4488699b7e9efe2893, type: 3}
+    second: {fileID: 2800000, guid: 9bffb831f0c042940bc6de52e293a3ad, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
