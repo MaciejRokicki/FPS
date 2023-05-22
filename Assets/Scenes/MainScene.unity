@@ -721,6 +721,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!198 &1780371647 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 89156282364660159, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
+  m_PrefabInstance: {fileID: 8006987298623437051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1785734576
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +891,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.26
       objectReference: {fileID: 0}
+    - target: {fileID: 1703188049106120162, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
+      propertyPath: ps
+      value: 
+      objectReference: {fileID: 1780371647}
     - target: {fileID: 2689521127659535986, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2

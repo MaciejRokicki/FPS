@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField]
+    private ParticleSystem muzzleFlashEffect;
+
     private WeaponManager weaponManager;
     private CrosshairManager crosshairManager;
 
@@ -164,6 +167,7 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         Ammo--;
+        muzzleFlashEffect.Play();
 
         RaycastHit hit;
 
