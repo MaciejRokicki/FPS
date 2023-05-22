@@ -11,8 +11,14 @@ public class Weapon : MonoBehaviour
 
     private WeaponFireModeBaseStrategy weaponFireModeStrategy;
 
-    [SerializeField]
+    private bool mainFireMode = true;
+
     private int ammo;
+    public int Ammo
+    {
+        get { return ammo; }
+        private set { ammo = value; }
+    }
     private float firerate;
     public float Firerate
     {
@@ -38,7 +44,7 @@ public class Weapon : MonoBehaviour
     {
         get
         {
-            if(!isReloading && IsShooting && Firerate == 0 && ammo > 0)
+            if(!isReloading && IsShooting && Firerate == 0 && Ammo > 0)
             {
                 return true;
             }
@@ -68,25 +74,12 @@ public class Weapon : MonoBehaviour
         weaponManager = WeaponManager.Instance;
         crosshairManager = CrosshairManager.Instance;
 
-        switch (statistics.FireMode)
-        {
-            case WeaponFireMode.One:
-                weaponFireModeStrategy = new OneShotFireModeStrategy(this, statistics);
-                break;
-
-            case WeaponFireMode.Three:
-                weaponFireModeStrategy = new ThreeShotFireModeStrategy(this, statistics);
-                break;
-
-            case WeaponFireMode.Auto:
-                weaponFireModeStrategy = new AutoFireModeStrategy(this, statistics);
-                break;
-        }
+        SetFireMode(statistics.FireMode);
     }
 
     private void Start()
     {
-        ammo = statistics.AmmoMagazineSize;
+        Ammo = statistics.AmmoMagazineSize;
     }
 
     private void Update()
@@ -131,17 +124,47 @@ public class Weapon : MonoBehaviour
 
     private void ChangeFireModePerformed(InputAction.CallbackContext ctxt)
     {
-
+        if(statistics.FireMode != statistics.AlternativeFireMode)
+        {
+            HandleChangeFireMode();
+        }
     }
 
     private void HandleReload()
     {
-        ammo = statistics.AmmoMagazineSize;
+        Ammo = statistics.AmmoMagazineSize;
+    }
+
+    private void HandleChangeFireMode()
+    {
+        mainFireMode = !mainFireMode;
+
+        WeaponFireMode fireMode = mainFireMode ? statistics.FireMode : statistics.AlternativeFireMode;
+        Debug.Log(fireMode);
+        SetFireMode(fireMode);
+    }
+
+    private void SetFireMode(WeaponFireMode fireMode)
+    {
+        switch (fireMode)
+        {
+            case WeaponFireMode.One:
+                weaponFireModeStrategy = new OneShotFireModeStrategy(this, statistics);
+                break;
+
+            case WeaponFireMode.Three:
+                weaponFireModeStrategy = new ThreeShotFireModeStrategy(this, statistics);
+                break;
+
+            case WeaponFireMode.Auto:
+                weaponFireModeStrategy = new AutoFireModeStrategy(this, statistics);
+                break;
+        }
     }
 
     public void Shoot()
     {
-        ammo--;
+        Ammo--;
 
         RaycastHit hit;
 

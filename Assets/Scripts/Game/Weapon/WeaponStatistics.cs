@@ -4,6 +4,7 @@ using UnityEngine;
 public class WeaponStatistics : ScriptableObject
 {
     public WeaponFireMode FireMode;
+    public WeaponFireMode AlternativeFireMode;
     public float Damage;
     public int AmmoMagazineSize;
     public float Firerate;

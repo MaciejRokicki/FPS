@@ -887,11 +887,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3086031461556500376, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3321626396446270664, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6296932583406607687, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: smoothness
