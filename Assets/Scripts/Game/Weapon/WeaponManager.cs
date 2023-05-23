@@ -16,6 +16,9 @@ public class WeaponManager : Singleton<WeaponManager>
     [SerializeField]
     private int currentWeaponId = 0;
 
+    public delegate void WeaponChangeCallback(Weapon weapon);
+    public event WeaponChangeCallback OnWeaponChange = delegate { };
+
     private void OnEnable()
     {
         NextWeaponActionReference.action.performed += NextWeapon;
@@ -24,6 +27,11 @@ public class WeaponManager : Singleton<WeaponManager>
     private void OnDisable()
     {
         NextWeaponActionReference.action.performed -= NextWeapon;
+    }
+
+    private void Start()
+    {
+        OnWeaponChange(weapons[currentWeaponId]);
     }
 
     private void NextWeapon(InputAction.CallbackContext ctxt)
@@ -47,6 +55,7 @@ public class WeaponManager : Singleton<WeaponManager>
             weapons[currentWeaponId].gameObject.SetActive(true);
         }
 
+        OnWeaponChange(weapons[currentWeaponId]);
         weaponSocketAnimator.Play("SwapWeapon");
     }
 }
