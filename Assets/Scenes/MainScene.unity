@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 551025259}
   - component: {fileID: 551025258}
   - component: {fileID: 551025257}
+  - component: {fileID: 551025261}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -220,6 +221,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &551025261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551025256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  material: 0
+  onHitObjectInteractions:
+  - Type: 0
+    InteractionObjectData:
+      GameObject: {fileID: 0}
+      Transform: {fileID: 0}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: Test2
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 0, y: 0, z: 0}
+      Material: {fileID: 0}
+  - Type: 2
+    InteractionObjectData:
+      GameObject: {fileID: 0}
+      Transform: {fileID: 551025260}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: Test2
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 0, y: 1, z: 0}
+      Material: {fileID: 0}
+  onDestroyObjectInteractions:
+  - Type: 1
+    InteractionObjectData:
+      GameObject: {fileID: 551025256}
+      Transform: {fileID: 551025260}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: sadfasd
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 0, y: 45, z: 0}
+      Material: {fileID: 0}
 --- !u!224 &682223786 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3399394705053913174, guid: f0d1b62114c8ec245892a6905cf049fc, type: 3}
@@ -331,6 +387,7 @@ GameObject:
   - component: {fileID: 1277358100}
   - component: {fileID: 1277358099}
   - component: {fileID: 1277358098}
+  - component: {fileID: 1277358102}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -416,6 +473,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277358102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277358097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  material: 1
+  onHitObjectInteractions:
+  - Type: 3
+    InteractionObjectData:
+      GameObject: {fileID: 0}
+      Transform: {fileID: 1277358101}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: 
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 45, y: 0, z: 0}
+      Material: {fileID: 0}
+  - Type: 0
+    InteractionObjectData:
+      GameObject: {fileID: 0}
+      Transform: {fileID: 1277358101}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: Test
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 1, y: 1, z: 1}
+      Material: {fileID: 0}
+  - Type: 2
+    InteractionObjectData:
+      GameObject: {fileID: 0}
+      Transform: {fileID: 1277358101}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: Test
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 0, y: 1, z: 0}
+      Material: {fileID: 0}
+  onDestroyObjectInteractions:
+  - Type: 1
+    InteractionObjectData:
+      GameObject: {fileID: 551025256}
+      Transform: {fileID: 0}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: 
+      Boolean: 1
+      Float: 0
+      Vector3: {x: 0, y: 0, z: 0}
+      Material: {fileID: 0}
+  - Type: 7
+    InteractionObjectData:
+      GameObject: {fileID: 551025256}
+      Transform: {fileID: 0}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 551025261}
+      String: 
+      Boolean: 1
+      Float: 20
+      Vector3: {x: 0, y: 0, z: 0}
+      Material: {fileID: 0}
+  - Type: 7
+    InteractionObjectData:
+      GameObject: {fileID: 551025256}
+      Transform: {fileID: 0}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 0}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 1277358102}
+      String: 
+      Boolean: 1
+      Float: 20
+      Vector3: {x: 0, y: 0, z: 0}
+      Material: {fileID: 0}
 --- !u!1 &1296285172
 GameObject:
   m_ObjectHideFlags: 0

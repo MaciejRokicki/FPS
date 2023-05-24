@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
     private WeaponFireModeBaseStrategy weaponFireModeStrategy;
 
-    private bool mainFireMode;
+    private bool mainFireMode = true;
     public bool MainFireMode
     {
         get
@@ -210,6 +210,11 @@ public class Weapon : MonoBehaviour
         {
             if(hit.collider)
             {
+                InteractiveObject interactiveObject = hit.collider.GetComponent<InteractiveObject>();
+                if (interactiveObject)
+                {
+                    interactiveObject.OnHit(statistics.ObjectMaterial, statistics.Damage);
+                }
                 crosshairManager.OnHit();
             }
         }     

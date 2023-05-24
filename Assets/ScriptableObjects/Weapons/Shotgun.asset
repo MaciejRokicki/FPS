@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bbd8758414c5b4d82ab3627b5c321c, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
+  ObjectMaterial: 2
   FireMode: 0
+  AlternativeFireMode: 0
   Damage: 20
   AmmoMagazineSize: 6
   Firerate: 1
