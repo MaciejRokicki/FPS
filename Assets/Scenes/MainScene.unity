@@ -161,54 +161,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 381144593271267942, guid: 5518466ac73c3b94e8f1765c6c455927, type: 3}
---- !u!1 &353474496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000010625713186, guid: 5d10ae558efe6a64d96e5b4d02ec6792, type: 3}
-  m_PrefabInstance: {fileID: 949578917}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &353474500
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353474496}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: d27239c9a7de0f243876d949bb27027b, type: 3}
---- !u!114 &353474504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353474496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  material: 2
-  onHitObjectInteractions:
-  - Type: 5
-    InteractionObjectData:
-      GameObject: {fileID: 0}
-      Transform: {fileID: 0}
-      MeshRenderer: {fileID: 0}
-      ParticleSystem: {fileID: 949578922}
-      Animator: {fileID: 0}
-      InteractiveObject: {fileID: 0}
-      String: 
-      Boolean: 0
-      Float: 0
-      Vector3: {x: 0, y: 0, z: 0}
-      Material: {fileID: 0}
-  onDestroyObjectInteractions: []
 --- !u!1001 &365492323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,7 +497,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64000012457302358, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
+    - {fileID: 64000011223035222, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
 --- !u!4 &800932182 stripped
 Transform:
@@ -5365,6 +5319,49 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!64 &949578925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949578919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: d27239c9a7de0f243876d949bb27027b, type: 3}
+--- !u!114 &949578926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949578919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  material: 2
+  onHitObjectInteractions:
+  - Type: 5
+    InteractionObjectData:
+      GameObject: {fileID: 0}
+      Transform: {fileID: 0}
+      MeshRenderer: {fileID: 0}
+      ParticleSystem: {fileID: 949578922}
+      Animator: {fileID: 0}
+      InteractiveObject: {fileID: 0}
+      String: 
+      Boolean: 0
+      Float: 0
+      Vector3: {x: 0, y: 0, z: 0}
+      Material: {fileID: 0}
+  onDestroyObjectInteractions: []
 --- !u!1 &1009534648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000011713842796, guid: ffd3e66d4df2a554fb995d41f7ffe4c2, type: 3}
@@ -5384,18 +5381,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 4b1205a7235860c479fc94aefe26ebf1, type: 3}
---- !u!1 &1143996379 stripped
+--- !u!1 &1192225594 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000011298462702, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1000010455766620, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
   m_PrefabInstance: {fileID: 800932181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1143996384
+--- !u!114 &1192225595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143996379}
+  m_GameObject: {fileID: 1192225594}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
@@ -5431,70 +5428,20 @@ MonoBehaviour:
       Vector3: {x: 90, y: 0.5, z: 0}
       Material: {fileID: 0}
   onDestroyObjectInteractions: []
---- !u!114 &1143996385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143996379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  material: 0
-  onHitObjectInteractions: []
-  onDestroyObjectInteractions: []
---- !u!1 &1272318556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000012892907014, guid: 5d10ae558efe6a64d96e5b4d02ec6792, type: 3}
-  m_PrefabInstance: {fileID: 949578917}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1272318560
+--- !u!64 &1192225596
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272318556}
+  m_GameObject: {fileID: 1192225594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300006, guid: d27239c9a7de0f243876d949bb27027b, type: 3}
---- !u!114 &1272318564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272318556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  material: 2
-  onHitObjectInteractions:
-  - Type: 5
-    InteractionObjectData:
-      GameObject: {fileID: 0}
-      Transform: {fileID: 0}
-      MeshRenderer: {fileID: 0}
-      ParticleSystem: {fileID: 949578922}
-      Animator: {fileID: 0}
-      InteractiveObject: {fileID: 0}
-      String: 
-      Boolean: 0
-      Float: 0
-      Vector3: {x: 0, y: 0, z: 0}
-      Material: {fileID: 0}
-  onDestroyObjectInteractions: []
+  m_Mesh: {fileID: 4300000, guid: d333b2b8135241f41a00ba9bb152f234, type: 3}
 --- !u!1 &1279925353
 GameObject:
   m_ObjectHideFlags: 0
@@ -10616,48 +10563,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013383922036, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
   m_PrefabInstance: {fileID: 800932181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1927425720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927425715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
-  material: 0
-  onHitObjectInteractions:
-  - Type: 2
-    InteractionObjectData:
-      GameObject: {fileID: 0}
-      Transform: {fileID: 800932182}
-      MeshRenderer: {fileID: 0}
-      ParticleSystem: {fileID: 0}
-      Animator: {fileID: 0}
-      InteractiveObject: {fileID: 0}
-      String: 
-      Boolean: 0
-      Float: 0
-      Vector3: {x: 0, y: 0.5, z: 0}
-      Material: {fileID: 0}
-  - Type: 3
-    InteractionObjectData:
-      GameObject: {fileID: 0}
-      Transform: {fileID: 800932182}
-      MeshRenderer: {fileID: 0}
-      ParticleSystem: {fileID: 0}
-      Animator: {fileID: 0}
-      InteractiveObject: {fileID: 0}
-      String: 
-      Boolean: 0
-      Float: 0
-      Vector3: {x: 90, y: 0.5, z: 0}
-      Material: {fileID: 0}
-  onDestroyObjectInteractions: []
 --- !u!114 &1927425721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10778,54 +10683,6 @@ MonoBehaviour:
       Float: 0
       Vector3: {x: 0, y: 0, z: 0}
       Material: {fileID: 0}
---- !u!1 &2008265412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000013203381846, guid: 5d10ae558efe6a64d96e5b4d02ec6792, type: 3}
-  m_PrefabInstance: {fileID: 949578917}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &2008265416
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008265412}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: d27239c9a7de0f243876d949bb27027b, type: 3}
---- !u!114 &2008265420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008265412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7b21eb750c5eb4293ab3e49bb144a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  material: 2
-  onHitObjectInteractions:
-  - Type: 5
-    InteractionObjectData:
-      GameObject: {fileID: 0}
-      Transform: {fileID: 0}
-      MeshRenderer: {fileID: 0}
-      ParticleSystem: {fileID: 949578922}
-      Animator: {fileID: 0}
-      InteractiveObject: {fileID: 0}
-      String: 
-      Boolean: 0
-      Float: 0
-      Vector3: {x: 0, y: 0, z: 0}
-      Material: {fileID: 0}
-  onDestroyObjectInteractions: []
 --- !u!1 &2144632127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8599225754459074761, guid: 43eee9f9554092940955b82111321ef9, type: 3}
