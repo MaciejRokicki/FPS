@@ -437,7 +437,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Pistolet skuteczny przeciwko drewnu\nKarabin skuteczny przeciwko stali\nShotgun
     skuteczny przeciwko kamieniowi\n--------------------------------------------------------------------------------\nBeczka
-    - drewno | Po strzale - translacje i rotacja\nLampa - stal | Po strzale ga\u015Bnie
+    - drewno | Po strzale - translacja i rotacja\nLampa - stal | Po strzale ga\u015Bnie
     \u015Bwiat\u0142o, po zniszczeniu znika lampa \nSka\u0142a - kamie\u0144 | Po
     strzale efekty cz\u0105steczkowe\nSkrzynia - drewno | Po strzale efekty cz\u0105steczkowe,
     po zniszczeniu znika\nDrzwi - stal | Po strzale animacja"
