@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Pool;
+using static UnityEngine.UI.Image;
 
 public class WeaponManager : Singleton<WeaponManager>
 {
@@ -10,6 +12,12 @@ public class WeaponManager : Singleton<WeaponManager>
 
     [SerializeField]
     private Animator weaponSocketAnimator;
+    [SerializeField]
+    public GameObject BulletPrefab;
+    [SerializeField]
+    private Transform bulletContainer;
+
+    public IObjectPool<GameObject> bulletPool;
 
     [SerializeField]
     private Weapon[] weapons;
@@ -31,6 +39,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
     private void Start()
     {
+        bulletPool = new ObjectPool<GameObject>(CreateBulletObject, OnTakeBulletFromPool, OnBulletReturnedToPool, OnDestroyBulletPoolObject);
         OnWeaponChange(weapons[currentWeaponId]);
     }
 
@@ -57,5 +66,27 @@ public class WeaponManager : Singleton<WeaponManager>
 
         OnWeaponChange(weapons[currentWeaponId]);
         weaponSocketAnimator.Play("SwapWeapon");
+    }
+
+    GameObject CreateBulletObject()
+    {
+        GameObject bullet = Instantiate(BulletPrefab, Vector3.zero, Quaternion.identity, bulletContainer);
+
+        return bullet;
+    }
+
+    void OnBulletReturnedToPool(GameObject bullet)
+    {
+        bullet.gameObject.SetActive(false);
+    }
+
+    void OnTakeBulletFromPool(GameObject bullet)
+    {
+        bullet.gameObject.SetActive(true);
+    }
+
+    void OnDestroyBulletPoolObject(GameObject bullet)
+    {
+        Destroy(bullet.gameObject);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,8 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField]
     private ParticleSystem muzzleFlashEffect;
+    [SerializeField]
+    private Transform bulletSpawner;
 
     private WeaponManager weaponManager;
     private CrosshairManager crosshairManager;
@@ -206,17 +209,73 @@ public class Weapon : MonoBehaviour
 
         RaycastHit hit;
 
-        if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f)), out hit, statistics.Distance))
+        Vector3 spreadDirection = new Vector2(
+            Random.Range(-statistics.ShootSpreadRadius, statistics.ShootSpreadRadius),
+            Random.Range(-statistics.ShootSpreadRadius, statistics.ShootSpreadRadius)
+        );
+
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+        Vector3 direction = (ray.direction + spreadDirection).normalized;
+
+        if (Physics.Raycast(ray.origin, direction, out hit, statistics.Distance))
         {
-            if(hit.collider)
+            if (hit.collider)
             {
                 InteractiveObject interactiveObject = hit.collider.GetComponent<InteractiveObject>();
-                if (interactiveObject)
-                {
-                    interactiveObject.OnHit(statistics.ObjectMaterial, statistics.Damage);
-                }
-                crosshairManager.OnHit();
+
+                StartCoroutine(SpawnBullet(bulletSpawner.position, hit, interactiveObject));
             }
-        }     
+        }
+        else
+        {
+            StartCoroutine(SpawnBullet(bulletSpawner.position, direction));
+        }
+    }
+
+    private float bulletSpeed = 100.0f;
+
+    private IEnumerator SpawnBullet(Vector3 origin, Vector3 direction)
+    {
+        GameObject bullet = weaponManager.bulletPool.Get();
+        bullet.transform.position = origin;
+
+        float reamingDistance = statistics.Distance;
+
+        while(reamingDistance > 0)
+        {
+            bullet.transform.position += direction * bulletSpeed * Time.deltaTime;
+
+            reamingDistance -= bulletSpeed * Time.deltaTime;
+
+            yield return null;
+        }
+
+        weaponManager.bulletPool.Release(bullet);
+    }
+
+    private IEnumerator SpawnBullet(Vector3 origin, RaycastHit hit, InteractiveObject interactiveObject = null)
+    {
+        GameObject bullet = weaponManager.bulletPool.Get();
+        bullet.transform.position = origin;
+
+        float reamingDistance = hit.distance;
+        Vector3 direction = (hit.point - origin).normalized;
+
+        while (reamingDistance > 0)
+        {
+            bullet.transform.position += direction * bulletSpeed * Time.deltaTime;
+
+            reamingDistance -= bulletSpeed * Time.deltaTime;
+
+            yield return null;
+        }
+
+        if(interactiveObject)
+        {
+            interactiveObject.OnHit(statistics.ObjectMaterial, statistics.Damage);
+            crosshairManager.OnHit();
+        }
+
+        weaponManager.bulletPool.Release(bullet);
     }
 }
