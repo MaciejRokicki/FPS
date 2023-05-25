@@ -20,6 +20,8 @@ public sealed class PlayerController : MonoBehaviour
     private InputActionReference sprintToggleActionReference;
     [SerializeField]
     private InputActionReference jumpInputActionReference;
+    [SerializeField]
+    private InputActionReference resetPositionInputActionReference;
     #endregion
 
     #region Settings
@@ -62,6 +64,7 @@ public sealed class PlayerController : MonoBehaviour
         sprintHoldActionReference.action.performed += SprintHoldInputPerformed;
         sprintHoldActionReference.action.canceled += SprintHoldInputCanceled;
         sprintToggleActionReference.action.canceled += SprintToggleInputCanceled;
+        resetPositionInputActionReference.action.performed += HandleResetPosition;
     }
 
     private void OnDisable()
@@ -71,6 +74,7 @@ public sealed class PlayerController : MonoBehaviour
         jumpInputActionReference.action.performed -= JumpInputPerformed;
         sprintHoldActionReference.action.performed -= SprintHoldInputPerformed;
         sprintHoldActionReference.action.canceled -= SprintHoldInputCanceled;
+        resetPositionInputActionReference.action.performed -= HandleResetPosition;
     }
 
     private void Awake()
@@ -181,5 +185,12 @@ public sealed class PlayerController : MonoBehaviour
         Vector3 cameraRotation = playerCamera.transform.eulerAngles;
         cameraRotation.x = cameraVerticalRotation;
         playerCamera.transform.eulerAngles = cameraRotation;
+    }
+
+    private void HandleResetPosition(CallbackContext ctxt)
+    {
+        characterController.enabled = false;
+        transform.SetPositionAndRotation(new Vector3(0.0f, 1.1f, 0.0f), Quaternion.identity);
+        characterController.enabled = true;
     }
 }

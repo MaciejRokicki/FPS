@@ -182,6 +182,7 @@ MonoBehaviour:
   sprintHoldActionReference: {fileID: 7945535247743144429, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   sprintToggleActionReference: {fileID: -4537801240566212670, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   jumpInputActionReference: {fileID: 2398443007023308220, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
+  resetPositionInputActionReference: {fileID: 8963028875191156723, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   movementSpeed: 5
   sprintBoost: 5
   jumpHeight: 1
