@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224390497668753680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -0.35, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -207,6 +207,8 @@ MonoBehaviour:
   ChangeFireModeActionReference: {fileID: 4171097843155153919, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   NextWeaponActionReference: {fileID: -5678840430479451587, guid: 14ac3b4edaccd424b835c4f8e74b7010, type: 3}
   weaponSocketAnimator: {fileID: 0}
+  BulletPrefab: {fileID: 3416508358965671158, guid: f0c028920e3bd7e4abc4790a90a3b393, type: 3}
+  bulletContainer: {fileID: 0}
   weapons:
   - {fileID: 1703188049106120162}
   - {fileID: 8404310986454665749}
@@ -540,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlashEffect: {fileID: 7982467374840964723}
-  bulletSpawner: {fileID: 8400522857968108809}
+  BulletSpawner: {fileID: 8400522857968108809}
   statistics: {fileID: 11400000, guid: ee8008007a96edb4ca99033e324e2815, type: 2}
 --- !u!4 &824884921901610678 stripped
 Transform:
@@ -663,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlashEffect: {fileID: 89156282364660159}
-  bulletSpawner: {fileID: 4416647622238979070}
+  BulletSpawner: {fileID: 4416647622238979070}
   statistics: {fileID: 11400000, guid: 3977ebb5f78c0e842b0fcb7b1f67417d, type: 2}
 --- !u!1001 &2743431673622039241
 PrefabInstance:
@@ -781,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlashEffect: {fileID: 7998618705822083673}
-  bulletSpawner: {fileID: 6495346750680819343}
+  BulletSpawner: {fileID: 6495346750680819343}
   statistics: {fileID: 11400000, guid: c934235931b627a43ae960a3065c4320, type: 2}
 --- !u!1001 &7816001820347516611
 PrefabInstance:

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bbd8758414c5b4d82ab3627b5c321c, type: 3}
   m_Name: AK47
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 3416508358965671158, guid: f0c028920e3bd7e4abc4790a90a3b393, type: 3}
   ObjectMaterial: 1
   FireMode: 2
   AlternativeFireMode: 1
   Damage: 2
+  ShotsNumber: 1
+  BulletSpeed: 100
   ShootSpreadRadius: 0.05
   AmmoMagazineSize: 30
   Firerate: 0.15

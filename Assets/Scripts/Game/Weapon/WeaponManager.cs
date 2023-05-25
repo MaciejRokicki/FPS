@@ -77,6 +77,7 @@ public class WeaponManager : Singleton<WeaponManager>
 
     void OnBulletReturnedToPool(GameObject bullet)
     {
+        bullet.GetComponent<TrailRenderer>().Clear();
         bullet.gameObject.SetActive(false);
     }
 

@@ -6,8 +6,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField]
     private ParticleSystem muzzleFlashEffect;
-    [SerializeField]
-    private Transform bulletSpawner;
+    public Transform BulletSpawner;
 
     private WeaponManager weaponManager;
     private CrosshairManager crosshairManager;
@@ -207,32 +206,33 @@ public class Weapon : MonoBehaviour
         muzzleFlashEffect.Play();
         OnAmmoChange(Ammo, statistics.AmmoMagazineSize);
 
-        RaycastHit hit;
-
-        Vector3 spreadDirection = new Vector2(
-            Random.Range(-statistics.ShootSpreadRadius, statistics.ShootSpreadRadius),
-            Random.Range(-statistics.ShootSpreadRadius, statistics.ShootSpreadRadius)
-        );
-
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
-        Vector3 direction = (ray.direction + spreadDirection).normalized;
-
-        if (Physics.Raycast(ray.origin, direction, out hit, statistics.Distance))
+        for(int i = 0; i < statistics.ShotsNumber; i ++)
         {
-            if (hit.collider)
-            {
-                InteractiveObject interactiveObject = hit.collider.GetComponent<InteractiveObject>();
+            RaycastHit hit;
 
-                StartCoroutine(SpawnBullet(bulletSpawner.position, hit, interactiveObject));
+            Vector3 spreadDirection = new Vector2(
+                Random.Range(-statistics.ShootSpreadRadius, statistics.ShootSpreadRadius),
+                Random.Range(-statistics.ShootSpreadRadius, statistics.ShootSpreadRadius)
+            );
+
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+            Vector3 direction = (ray.direction + spreadDirection).normalized;
+
+            if (Physics.Raycast(ray.origin, direction, out hit, statistics.Distance))
+            {
+                if (hit.collider)
+                {
+                    InteractiveObject interactiveObject = hit.collider.GetComponent<InteractiveObject>();
+
+                    StartCoroutine(SpawnBullet(BulletSpawner.position, hit, interactiveObject));
+                }
+            }
+            else
+            {
+                StartCoroutine(SpawnBullet(BulletSpawner.position, direction));
             }
         }
-        else
-        {
-            StartCoroutine(SpawnBullet(bulletSpawner.position, direction));
-        }
     }
-
-    private float bulletSpeed = 100.0f;
 
     private IEnumerator SpawnBullet(Vector3 origin, Vector3 direction)
     {
@@ -243,9 +243,9 @@ public class Weapon : MonoBehaviour
 
         while(reamingDistance > 0)
         {
-            bullet.transform.position += direction * bulletSpeed * Time.deltaTime;
+            bullet.transform.position += direction * statistics.BulletSpeed * Time.deltaTime;
 
-            reamingDistance -= bulletSpeed * Time.deltaTime;
+            reamingDistance -= statistics.BulletSpeed * Time.deltaTime;
 
             yield return null;
         }
@@ -263,9 +263,9 @@ public class Weapon : MonoBehaviour
 
         while (reamingDistance > 0)
         {
-            bullet.transform.position += direction * bulletSpeed * Time.deltaTime;
+            bullet.transform.position += direction * statistics.BulletSpeed * Time.deltaTime;
 
-            reamingDistance -= bulletSpeed * Time.deltaTime;
+            reamingDistance -= statistics.BulletSpeed * Time.deltaTime;
 
             yield return null;
         }

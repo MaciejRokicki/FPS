@@ -11122,22 +11122,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5573490926168000120, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573490926168000120, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573490926168000120, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7110286403783840608, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
-      propertyPath: BulletPrefab
-      value: 
-      objectReference: {fileID: 3416508358965671158, guid: f0c028920e3bd7e4abc4790a90a3b393, type: 3}
     - target: {fileID: 7110286403783840608, guid: 4776050a0f0dce94a8703934db0c39f7, type: 3}
       propertyPath: bulletContainer
       value: 

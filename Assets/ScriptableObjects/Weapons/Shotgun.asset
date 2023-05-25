@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bbd8758414c5b4d82ab3627b5c321c, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 3416508358965671158, guid: f0c028920e3bd7e4abc4790a90a3b393, type: 3}
   ObjectMaterial: 2
   FireMode: 0
   AlternativeFireMode: 0
-  Damage: 20
-  ShootSpreadRadius: 0.1
+  Damage: 2
+  ShotsNumber: 10
+  BulletSpeed: 100
+  ShootSpreadRadius: 0.2
   AmmoMagazineSize: 6
   Firerate: 1
   ReloadTime: 3
